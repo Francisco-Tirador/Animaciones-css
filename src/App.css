@@ -1,0 +1,129 @@
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.App{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.carga{
+  background-color: rgb(46, 165, 42);
+  width: 100px;
+  height: 100px;
+  margin-left: 200px;
+  animation: 4s infinite  linear carga;
+}
+
+
+@keyframes carga{
+  0%{
+    transform: translate(0)rotate(90deg);
+  }
+  30%{
+    transform: translate(300px)rotate(-50deg);
+  }
+  50%{
+    transform: translate(300px,300px)rotate(50deg);
+  }
+  75%{
+    transform: translate(0,300px)rotate(-90deg);
+  }
+}
+
+
+.CircleUnaLineaCSS{
+  background-color: yellowgreen;
+  width: 200px;
+  margin:50px ;
+  height: 200px;
+  border-radius:50% ;
+ /* esta animacion recive el tiempo, comportamiento y el nombre en una linea//cabe mencionar
+ que el primer digito numerico se referira al tiempo y el segundo al delay el tiempo que permanezca
+ con las caracteristicas dadas en el 0% */
+  animation: 5s infinite alternate linear UnaLinea;
+}
+@keyframes UnaLinea{
+  30%{
+    background-color:blue ;
+    
+  }
+  100%{
+    background-color: red;
+    border-radius: 0;
+    transform: scale(0.2);
+  }
+}
+
+.Circle{
+ 
+  margin-top: 30px;
+  margin-left:200px;
+  width: 150px;
+  height: 150px;
+  background-color: rgb(255, 47, 234);
+  border-radius: 50%;
+  /* mandamos a llmar el keyfren */
+  animation-name:cambiarColor ;
+  animation-duration: 5s;
+    /* define cuantas veces se va repetir la animacion 
+    podemos poner 2  o 5 o 10 y seran las veces que se repita o infinite*/
+  animation-iteration-count: infinite;
+  /* aqui indicamos de donde parte la animacion 
+  exite el normal, reverse, alternate y alternate-reverse que empieza del 100%
+  podemos manejar del como empieza con el porcentaje*/
+  animation-direction: alternate-reverse;
+  /* decide que pasara antes y despues de ejecutar la animacion, dice en que estilos
+  se queda la animacion,
+  none- no pasa nda/// forwards-se queda con los estilos del 100%///backwards-tiene los estilos
+  del principio para visualizar back nesesitamos decirle la duracion con animation-delay:2s//
+  both- que sonlos comportamientos de back y for 
+  */
+  animation-fill-mode:both ;
+  /* nos permite visualizar los estilos que por tiene en el 0%*/
+  animation-delay:4s ;
+  /* nos permite indicarcurva de aceleracion las velocidades, si queremos que valla de lento a rapido o al reves
+  por defecto ease-que aumenta la velocidad a la mitad//ease-in-que aumena progresivamente asta terminar
+  ease-in-out=>que empizea lento aumenta a la mitad y termina lento //ease-outque comienza rapido y termina lento
+  Linea=>es constante no acelera ni disminuye */
+  animation-timing-function:ease-in-out ;
+
+
+}
+
+.Circle:hover{
+  animation-play-state:paused ;
+}
+/* las animaciones en css permiten cambiar un elemento de estado ha otro
+no necesitan un disparador  podemos controlar el flujo desde que inicia asta que termina*/
+
+/* los @keyframes nos permiten controlar la animacion 
+  le damos que en el 0% de la animacion sea rojo y al 50% sea verde y asi 
+   */
+
+
+@keyframes cambiarColor{
+  0%{
+    background-color: aquamarine;
+      /* aumenta el mañao  */
+      transform:scale(2)translateX(250px)rotate(180deg);
+      border-radius: 0 ;
+  }
+  50%{
+  
+    background-color: yellowgreen;
+    transform: scale(1);
+    border-radius: 50% ;
+  }
+ 
+  100%{
+    transform:scale(2)translateX(-250px)rotate(180deg);
+    background-color: brown;
+    border-radius: 0 ;
+  }
+}
+
+
+
